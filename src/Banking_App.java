@@ -30,7 +30,11 @@ public class Banking_App {
             Accounts accounts = new Accounts(conn,sc);
             AccountManager accountManager = new AccountManager(conn,sc);
 
-            
+            String email;
+            long account_number;
+
+
+
 
 
         } catch (SQLException e) {
