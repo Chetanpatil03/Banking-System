@@ -49,6 +49,39 @@ public class User {
 
     }
 
+
+    public String login(){
+        sc.nextLine();
+        System.out.print("Email : ");
+        String email = sc.nextLine();
+        System.out.println("Password : ");
+        String pass = sc.nextLine();
+
+        String login_query = "SELECT * FROM user WHERE email ? AND password = ?";
+
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(login_query);
+            preparedStatement.setString(1,email);
+            preparedStatement.setString(2,pass);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()){
+                return email;
+            }
+            else {
+                return null;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
     public boolean userExist(String email){
 
         String sql = "select * from user where email = '"+email+"'";
