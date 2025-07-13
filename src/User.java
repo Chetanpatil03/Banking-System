@@ -84,12 +84,19 @@ public class User {
 
     public boolean userExist(String email){
 
-        String sql = "select * from user where email = '"+email+"'";
+        String sql = "select * from user where email = ?";
         try {
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1,email);
 
-            return resultSet.next();
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()){
+                return true;
+            }
+            else {
+                return false;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,5 +104,7 @@ public class User {
         }
 
     }
+
+
 
 }
