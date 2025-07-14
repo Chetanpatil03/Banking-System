@@ -54,10 +54,10 @@ public class User {
         sc.nextLine();
         System.out.print("Email : ");
         String email = sc.nextLine();
-        System.out.println("Password : ");
+        System.out.print("Password : ");
         String pass = sc.nextLine();
 
-        String login_query = "SELECT * FROM user WHERE email ? AND password = ?";
+        String login_query = "SELECT * FROM user WHERE email = ? AND password = ?";
 
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(login_query);
