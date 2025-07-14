@@ -16,11 +16,11 @@ public class Accounts {
             sc.nextLine();
             System.out.print("Enter Full name : ");
             String full_name = sc.nextLine();
-            System.out.print("Enter Initial Balance");
+            System.out.print("Enter Initial Balance : ");
             double balance = sc.nextDouble();
             sc.nextLine();
 
-            System.out.print("Enter security Pin:");
+            System.out.print("Enter security Pin : ");
             String security_pin = sc.nextLine();
 
             try{
