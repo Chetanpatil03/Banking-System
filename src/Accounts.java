@@ -11,7 +11,43 @@ public class Accounts {
     }
 
     public long openAccount(String email){
+        if (!accountExist(email)){
+            String sql = "INSERT INTO accounts(acc_number,full_name,email,balance,security_pin) VALUES(?,?,?,?,?)";
+            sc.nextLine();
+            System.out.print("Enter Full name : ");
+            String full_name = sc.nextLine();
+            System.out.println("Enter Initial Balance");
+            double balance = sc.nextDouble();
+            sc.nextLine();
 
+            System.out.println("Enter security Pin:");
+            String security_pin = sc.nextLine();
+
+            try{
+                long acc_number = generateAccountNumber();
+
+                PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+                preparedStatement.setLong(1,acc_number);
+                preparedStatement.setString(2,full_name);
+                preparedStatement.setString(3,email);
+                preparedStatement.setDouble(4,balance);
+                preparedStatement.setString(5,security_pin);
+
+                int affectedRow = preparedStatement.executeUpdate();
+
+                if (affectedRow > 0){
+                    return acc_number;
+                }
+                else {
+                    throw new RuntimeException("Account creation FAILED!......");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+        throw new RuntimeException("Account creation FAILED!......");
     }
     public long getAccountNumber(String email){
         String sql = "SELECT acc_number from accounts where email = ?";
