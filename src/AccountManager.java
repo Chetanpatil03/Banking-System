@@ -120,4 +120,28 @@ public class AccountManager {
         }
         conn.setAutoCommit(true);
     }
+
+    public void getBalance(long acc_number){
+        sc.nextLine();
+        System.out.print("Enter Security PIN: ");
+        String security_pin = sc.nextLine();
+
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("SELECT balance FROM accounts WHERE acc_number = ? and security_pin = ?");
+            preparedStatement.setLong(1,acc_number);
+            preparedStatement.setString(2,security_pin);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                double balance = resultSet.getDouble("balance");
+                System.out.println("Balance : "+balance);
+            }
+            else {
+                System.out.println("INVALID PIN.....");
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
