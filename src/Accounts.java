@@ -9,4 +9,18 @@ public class Accounts {
         this.conn = conn;
         this.sc = sc;
     }
+
+    public long openAccount(String email){
+
+    }
+    public long getAccountNumber(String email){
+
+    }
+    public long generateAccountNumber(){
+        return ;
+    }
+
+    public boolean accountExist(String email){
+        String sql = "SELECT "
+    }
 }
