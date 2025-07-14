@@ -14,7 +14,22 @@ public class Accounts {
 
     }
     public long getAccountNumber(String email){
+        String sql = "SELECT acc_number from accounts where email = ?";
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1,email);
 
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()){
+                return resultSet.getLong("acc_number");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        throw new RuntimeException("Account number Doesn't EXIST!.........");
     }
     public long generateAccountNumber(){
         try{
@@ -34,7 +49,7 @@ public class Accounts {
 
         return 10000100;
     }
-
+;
     public boolean accountExist(String email){
         String sql = "SELECT acc_number from accounts where email = ?";
 
