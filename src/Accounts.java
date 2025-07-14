@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Accounts {
@@ -20,7 +17,22 @@ public class Accounts {
 
     }
     public long generateAccountNumber(){
-        return ;
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT acc_number FROM accounts ORDER BY acc_number DESC LIMIT 1 ");
+            if (resultSet.next()){
+                long last_accNumber = resultSet.getLong("acc_number");
+                return last_accNumber + 1;
+            }
+            else {
+                return 10000100;
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return 10000100;
     }
 
     public boolean accountExist(String email){
