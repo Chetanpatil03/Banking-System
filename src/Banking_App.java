@@ -3,6 +3,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+
+//main class that have menu of the banking app
+
 public class Banking_App {
 
     private static final String url = "jdbc:mysql://localhost:3306/bank_sys";

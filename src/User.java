@@ -6,11 +6,15 @@ public class User {
     private Connection conn;
     private Scanner sc;
 
+
+
     public User(Connection conn,Scanner sc){
         this.conn = conn;
         this.sc = sc;
+        // creating instance of connection and scanner is best practice.
     }
 
+//    to register new user
     public void register(){
         sc.nextLine();
         System.out.print("Enter full name : ");
@@ -20,12 +24,14 @@ public class User {
         System.out.print("Password : ");
         String pass = sc.nextLine();
 
-        if (userExist(email)){
+        if (userExist(email)){ //function which returns true if user already exist
             System.out.println("User already exists for this Email.......");
             return;
         }
 
         String register = "insert into user(full_name,email,password) values(?,?,?)";
+//        used prepared statement that to maintain data integrity and security from SQL injections
+
 
         try{
             PreparedStatement preparedStatement = conn.prepareStatement(register);
@@ -34,9 +40,11 @@ public class User {
             preparedStatement.setString(3,pass);
 
             int affectedRows = preparedStatement.executeUpdate();
+//            returns how many rows are affected
 
             if(affectedRows > 0){
                 System.out.println("Registration successful!......");
+//                if only single row is affected
             }
             else {
                 System.out.println("Registration failed");
@@ -49,7 +57,7 @@ public class User {
 
     }
 
-
+//      to login user in the system
     public String login(){
         sc.nextLine();
         System.out.print("Email : ");
@@ -81,7 +89,7 @@ public class User {
         return null;
     }
 
-
+//      checks user already exists or not
     public boolean userExist(String email){
 
         String sql = "select * from user where email = ?";

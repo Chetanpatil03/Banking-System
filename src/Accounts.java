@@ -10,9 +10,12 @@ public class Accounts {
         this.sc = sc;
     }
 
+//    opening a new account of a new customer
+//    if customer log on first time it creates account
     public long openAccount(String email){
         if (!accountExist(email)){
             String sql = "INSERT INTO accounts(acc_number,full_name,email,balance,security_pin) VALUES(?,?,?,?,?)";
+//              replace the placeholders with values.
             sc.nextLine();
             System.out.print("Enter Full name : ");
             String full_name = sc.nextLine();
@@ -49,6 +52,9 @@ public class Accounts {
         }
         throw new RuntimeException("Account creation FAILED!......");
     }
+
+//    returning account number as per email
+//    because email is primary key
     public long getAccountNumber(String email){
         String sql = "SELECT acc_number from accounts where email = ?";
         try {
@@ -67,6 +73,9 @@ public class Accounts {
 
         throw new RuntimeException("Account number Doesn't EXIST!.........");
     }
+
+//    to generate new and unique account number every time
+//    incrementing the previous account number by one
     public long generateAccountNumber(){
         try{
             Statement statement = conn.createStatement();
@@ -85,7 +94,9 @@ public class Accounts {
 
         return 10000100;
     }
-;
+
+
+//    checks account already exists or not
     public boolean accountExist(String email){
         String sql = "SELECT acc_number from accounts where email = ?";
 

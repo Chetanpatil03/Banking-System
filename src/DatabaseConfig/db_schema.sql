@@ -17,3 +17,6 @@ password varchar(255));
 
 describe user;
 describe accounts;
+
+-- insert query:
+INSERT INTO accounts(acc_number,full_name,email,balance,security_pin) VALUES(?,?,?,?,?);

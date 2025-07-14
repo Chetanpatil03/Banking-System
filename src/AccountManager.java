@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+// the AccountManager class handles all kind of account related transactions
+// like Credit,Debit,Transfer and check balance.
 public class AccountManager {
     private Connection conn;
     private Scanner sc;
@@ -13,6 +15,7 @@ public class AccountManager {
         this.sc = sc;
     }
 
+//    debit money from bank account
     public void debit_money(long acc_number) throws SQLException{
         sc.nextLine();
         System.out.print("Enter amount : ");
@@ -69,6 +72,7 @@ public class AccountManager {
         conn.setAutoCommit(true);
     }
 
+//    credit money to bank account
     public void credit_money(long acc_number) throws SQLException{
         sc.nextLine();
         System.out.print("Enter amount : ");
@@ -121,6 +125,7 @@ public class AccountManager {
         conn.setAutoCommit(true);
     }
 
+//    to get current balance
     public void getBalance(long acc_number){
         sc.nextLine();
         System.out.print("Enter Security PIN: ");
@@ -145,6 +150,7 @@ public class AccountManager {
         }
     }
 
+//    transferring money to another account with proper validation
     public void transfer_money(long sender_AccNumber) throws SQLException{
         sc.nextLine();
         System.out.print("Enter Receiver Account number : ");
