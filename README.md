@@ -12,10 +12,10 @@ It demonstrates essential JDBC concepts such as:
 
 ## 📂 Project Structure
 
- 📂 src
-  ├── 📂DatabaseConfig
+ 📂 src<br>
+  ├── 📂DatabaseConfig<br>
   |     ├── db_schema.sql // SQL script to create database and tables<br>
-  |
+  | <br>
   ├── Banking_App.java // Main entry point of the application<br>
   ├── AccountManager.java // Contains logic for account operations <br>
   ├── Accounts.java // Model class for account data<br>
@@ -67,7 +67,7 @@ Open a MySQL client (like MySQL Workbench or command-line)
 
 Run the SQL script provided in db_schema.sql:
 <pre>
-            source path/to/db_schema.sql;
+   source path/to/db_schema.sql;
 </pre>
 
 
@@ -84,9 +84,9 @@ Create two tables: accounts and user
 In your Java code (e.g., Banking_App.java), update the connection details:
 
 <pre>
-      String url = "jdbc:mysql://localhost:3306/bank_sys";
-      String username = "your_mysql_username";
-      String password = "your_mysql_password";
+    String url = "jdbc:mysql://localhost:3306/bank_sys";
+    String username = "your_mysql_username";
+    String password = "your_mysql_password";
 </pre>
 
 ### 4. Run the Application
