@@ -14,12 +14,12 @@ It demonstrates essential JDBC concepts such as:
 
  📂 src
   ├── 📂DatabaseConfig
-  |     ├── db_schema.sql // SQL script to create database and tables
+  |     ├── db_schema.sql // SQL script to create database and tables<br>
   |
-  ├── Banking_App.java // Main entry point of the application
-  ├── AccountManager.java // Contains logic for account operations 
-  ├── Accounts.java // Model class for account data
-  ├── User.java // Model class for user data
+  ├── Banking_App.java // Main entry point of the application<br>
+  ├── AccountManager.java // Contains logic for account operations <br>
+  ├── Accounts.java // Model class for account data<br>
+  ├── User.java // Model class for user data<br>
 
 
 ## 💡 Features
@@ -56,9 +56,9 @@ Through this project, I explored:
 
 ### 1. Clone the Repository
 
-<pre> ```bash 
+<pre> 
   git clone https://github.com/Chetanpatil03/Banking-system.git 
-``` </pre>
+</pre>
 
 ### 2. Set Up the Database
 Make sure MySQL is running, then:
@@ -66,9 +66,9 @@ Make sure MySQL is running, then:
 Open a MySQL client (like MySQL Workbench or command-line)
 
 Run the SQL script provided in db_schema.sql:
-<pre> ```bash 
+<pre>
             source path/to/db_schema.sql;
-``` </pre>
+</pre>
 
 
 
@@ -80,22 +80,22 @@ Create two tables: accounts and user
 
 📁 You can modify the schema as needed, just ensure the code and DB stay in sync.
 
-3. Update JDBC Connection
+### 3. Update JDBC Connection
 In your Java code (e.g., Banking_App.java), update the connection details:
 
-<pre> ```bash 
+<pre>
       String url = "jdbc:mysql://localhost:3306/bank_sys";
       String username = "your_mysql_username";
       String password = "your_mysql_password";
-  ```</pre>
+</pre>
 
-4. Run the Application
+### 4. Run the Application
 
 Open the project in your Java IDE
 Compile and run Banking_App.java
 Follow on-screen prompts
 
 
-🧑‍💻 Author
+🧑‍💻 Author<br>
 Chetan Patil
 
