@@ -1,4 +1,7 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Accounts {
@@ -21,6 +24,26 @@ public class Accounts {
     }
 
     public boolean accountExist(String email){
-        String sql = "SELECT "
+        String sql = "SELECT acc_number from accounts where email = ?";
+
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+            preparedStatement.setString(1,email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()){
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }
