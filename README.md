@@ -87,9 +87,9 @@ Create two tables: accounts and user
 In your Java code (e.g., Banking_App.java), update the connection details:
 
 <pre>
-    String url = "jdbc:mysql://localhost:3306/bank_sys";
-    String username = "your_mysql_username";
-    String password = "your_mysql_password";
+ String url = "jdbc:mysql://localhost:3306/bank_sys";
+ String username = "your_mysql_username";
+ String password = "your_mysql_password";
 </pre>
 
 ### 4. Run the Application
