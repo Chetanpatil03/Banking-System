@@ -13,16 +13,16 @@ It demonstrates essential JDBC concepts such as:
 ## 📂 Project Structure
 
 <pre>
- 📂 src
-  ├── 📂DatabaseConfig
-  |     ├── db_schema.sql // SQL script to create database and tables
-  | 
-  ├── Banking_App.java // Main entry point of the application
-  ├── AccountManager.java // Contains logic for account operations
-  ├── Accounts.java // Model class for account data
-  ├── User.java // Model class for user data
+📂 src
+ ├── 📂DatabaseConfig
+ |    ├── db_schema.sql // SQL script to create database and tables
+ | 
+ ├── Banking_App.java // Main entry point of the application
+ ├── AccountManager.java // Contains logic for account operations
+ |── Accounts.java // Model class for account data
+ ├── User.java // Model class for user data
 
-  </pre>
+</pre>
 
 
 ## 💡 Features
