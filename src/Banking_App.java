@@ -55,6 +55,7 @@ public class Banking_App {
                         if (email != null){
                             System.out.println();
                             System.out.println("User logged in!");
+
                             if (!accounts.accountExist(email)){
                                 System.out.println();
                                 System.out.println("1. Open a new Bank account : ");
